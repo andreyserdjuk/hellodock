@@ -98,8 +98,9 @@ public class Controller implements Initializable {
         List<Image> images = dockerClient.listImagesCmd().exec();
         ArrayList<DockerImage> dockerImages = new ArrayList<>();
         for (Image i : images) {
-            dockerImages.add(new DockerImage(i.getRepoTags()[0], i.get))
+//            dockerImages.add(new DockerImage(i.getRepoTags()[0], i.get));
         }
+        return dockerImages;
     }
 
     private List<DockerContainer> getDockerContainers() {
