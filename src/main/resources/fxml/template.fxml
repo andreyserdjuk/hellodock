@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -8,80 +9,100 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <GridPane alignment="center" maxHeight="Infinity" maxWidth="Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellodock.Controller">
     <children>
 
       <TabPane tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
         <tabs>
           <Tab text="containers">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-                    <children>
-                        <TableView fx:id="containersTable">
-                            <columns>
-                                <TableColumn prefWidth="150" text="id">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="id" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="250" text="image">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="image" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="200" text="command">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="command" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="250" text="names">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="names" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                            </columns>
-                        </TableView>
-                    </children>
-                </AnchorPane>
-            </content>
+               <content>
+                  <VBox>
+                     <children>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                          <items>
+                            <Button mnemonicParsing="false" onAction="#loadDockerContainers" text="refresh" />
+                              <Button mnemonicParsing="false" text="stop" />
+                              <Button mnemonicParsing="false" text="start" />
+                          </items>
+                        </ToolBar>
+                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                          <children>
+                              <TableView fx:id="containersTable">
+                                  <columns>
+                                      <TableColumn prefWidth="150" text="id">
+                                          <cellValueFactory>
+                                              <PropertyValueFactory property="id" />
+                                          </cellValueFactory>
+                                      </TableColumn>
+                                      <TableColumn prefWidth="250" text="image">
+                                          <cellValueFactory>
+                                              <PropertyValueFactory property="image" />
+                                          </cellValueFactory>
+                                      </TableColumn>
+                                      <TableColumn prefWidth="200" text="command">
+                                          <cellValueFactory>
+                                              <PropertyValueFactory property="command" />
+                                          </cellValueFactory>
+                                      </TableColumn>
+                                      <TableColumn prefWidth="250" text="names">
+                                          <cellValueFactory>
+                                              <PropertyValueFactory property="names" />
+                                          </cellValueFactory>
+                                      </TableColumn>
+                                      <TableColumn prefWidth="250" text="status">
+                                          <cellValueFactory>
+                                              <PropertyValueFactory property="status" />
+                                          </cellValueFactory>
+                                      </TableColumn>
+                                  </columns>
+                              </TableView>
+                          </children>
+                      </AnchorPane>
+                     </children>
+                  </VBox>
+               </content>
           </Tab>
           <Tab text="images">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                <VBox>
                     <children>
-                        <TableView fx:id="imagesTable">
-                            <columns>
-                                <TableColumn prefWidth="150" text="repository">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="repository" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="250" text="tag">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="tag" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="200" text="image id">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="image id" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="250" text="created">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="created" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="250" text="virtual size">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="virtual size" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                            </columns>
-                        </TableView>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                            <items>
+                                <Button mnemonicParsing="false" onAction="#loadDockerImages" text="refresh" />
+                                <Button mnemonicParsing="false" text="stop" />
+                                <Button mnemonicParsing="false" text="start" />
+                            </items>
+                        </ToolBar>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <children>
+                                <TableView fx:id="imagesTable">
+                                    <columns>
+                                        <TableColumn prefWidth="150" text="repository">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="repository" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="200" text="image id">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="imageId" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="250" text="created">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="created" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="250" text="virtual size">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="virtualSize" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
                     </children>
-                </AnchorPane>
-
+                </VBox>
             </content>
           </Tab>
             <Tab text="settings">

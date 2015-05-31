@@ -8,17 +8,31 @@ public class DockerContainer {
     private final SimpleStringProperty image = new SimpleStringProperty("");
     private final SimpleStringProperty command = new SimpleStringProperty("");
     private final SimpleStringProperty names = new SimpleStringProperty("");
+    private final SimpleStringProperty status = new SimpleStringProperty("");
 
 
     public DockerContainer() {
-        this("", "", "", "");
+        this("", "", "", "", "");
     }
 
-    public DockerContainer(String id, String image, String command, String names) {
+    public String getStatus() {
+        return status.get();
+    }
+
+    public SimpleStringProperty statusProperty() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status.set(status);
+    }
+
+    public DockerContainer(String id, String image, String command, String names, String status) {
         setId(id);
         setImage(image);
         setCommand(command);
         setNames(names);
+        setStatus(status);
     }
 
     public String getId() {

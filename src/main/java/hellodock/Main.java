@@ -11,8 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         GridPane root = FXMLLoader.load(getClass().getResource("/fxml/template.fxml"));
-        primaryStage.setTitle("Hello World");
-        Scene scene = new Scene(root, 860, 480);
+        primaryStage.setTitle("HelloDock");
+        Scene scene = new Scene(root, 1100, 480);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

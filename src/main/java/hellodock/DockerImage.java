@@ -16,6 +16,7 @@ public class DockerImage {
 
     public DockerImage(String repository, String imageId, String created, String virtualSize) {
         setRepository(repository);
+        setImageId(imageId);
         setCreated(created);
         setVirtualSize(virtualSize);
     }
